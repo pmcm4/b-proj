@@ -138,8 +138,8 @@ export default function CourtingPage() {
                 <span className="heart-graphic">💕</span>
 
                 <h1 className="courting-heading">
-                    Hi <span className="recipient-name">Bei</span>,<br />
-                    can I court you?
+                    Hi <span className="recipient-name">Bea</span>,<br />
+                    can I <strong >court</strong> you?
                 </h1>
 
                 <p className="courting-message">
@@ -149,7 +149,7 @@ export default function CourtingPage() {
                     <button className="proof-link" onClick={() => setShowProof(true)}>
                         here's proof
                     </button>
-                    ) — but I just couldn't help myself from asking since I already feel such a connection with you. I hope this doesn't feel too fast, but I assure you, I can wait. 🌸
+                    ) — but I couldn't stop myself from asking because I already feel such a strong connection with you. I hope this doesn't feel too fast, but I assure you, if not now, that's completely okay. I can wait. 🌸
                 </p>
 
                 <div className="buttons-row">
@@ -188,14 +188,6 @@ export default function CourtingPage() {
 
                         {/* Success card */}
                         <div className="success-card">
-                            <div className="success-emoji-row">
-                                🐱 💖 🌸 💖 🐱
-                            </div>
-                            <h2 className="success-title">Yaaaay!! 🎉</h2>
-                            <p className="success-subtitle">
-                                I am so happy you said yes!! 🌟
-                            </p>
-
                             <div className="success-image-single">
                                 <img
                                     className="success-img-single"
@@ -203,8 +195,6 @@ export default function CourtingPage() {
                                     alt={SUCCESS_IMAGE.alt}
                                 />
                             </div>
-
-                            <p className="success-tagline">This is going to be great 💕</p>
                         </div>
                     </div>,
                     document.body
