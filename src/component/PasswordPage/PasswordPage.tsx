@@ -27,9 +27,9 @@ export default function PasswordPage({ onSuccess }: Props) {
             <div className={`password-card ${errorKey > 0 ? "shake" : ""}`} key={errorKey}>
                 <span className="lock-icon">🔒</span>
 
-                <h1 className="password-heading">Secret Page</h1>
+                <h1 className="password-heading">For Bea</h1>
                 <p className="password-subtitle">
-                    Please enter the passcode to continue.
+                    Nasa likod ng papel ang passcode
                 </p>
 
                 <form onSubmit={handleSubmit} className="password-form">
@@ -42,7 +42,7 @@ export default function PasswordPage({ onSuccess }: Props) {
                         autoFocus
                     />
                     <button type="submit" className="btn btn-unlock">
-                        Unlock 💕
+                        Unlock
                     </button>
                 </form>
             </div>

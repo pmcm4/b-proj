@@ -149,7 +149,9 @@ export default function CourtingPage() {
                     <button className="proof-link" onClick={() => setShowProof(true)}>
                         here's proof
                     </button>
-                    ) — but I couldn't stop myself from asking because I already feel such a strong connection with you. I hope this doesn't feel too fast, but I assure you, if not now, that's completely okay. I can wait. 🌸
+                    ) — but in that time, I’ve genuinely enjoyed getting to know you and I feel a strong connection.
+                    I wanted to ask because I’d like to pursue you intentionally.
+                    No pressure at all. If now isn’t the right time for you, that’s completely okay. 🌸
                 </p>
 
                 <div className="buttons-row">
