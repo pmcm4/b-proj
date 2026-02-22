@@ -143,13 +143,13 @@ export default function CourtingPage() {
                 </h1>
 
                 <p className="courting-message">
-                    I know we've just met —{" "}
+                    I know we've just met -{" "}
                     <span className="duration-counter">{duration}</span>{" "}
                     ago to be exact (
                     <button className="proof-link" onClick={() => setShowProof(true)}>
-                        here's proof
+                        here's proof.
                     </button>
-                    ) — but in that time, I’ve genuinely enjoyed getting to know you and I feel a strong connection.
+                    ) - yes, I checked hehehe 😄 - but kidding aside, in that time, I’ve genuinely enjoyed getting to know you and I feel a strong connection.
                     I wanted to ask because I’d like to pursue you intentionally.
                     No pressure at all. If now isn’t the right time for you, that’s completely okay. 🌸
                 </p>
