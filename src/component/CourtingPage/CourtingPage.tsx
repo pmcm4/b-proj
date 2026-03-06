@@ -44,20 +44,20 @@ function randomPosition(
 
 /* ─── Media Slideshow config ─── */
 const MEDIA_ITEMS = [
-    { type: "video", src: "/yuni/IMG_2697.MOV", alt: "yuni 1" },
-    { type: "video", src: "/yuni/IMG_3311.MOV", alt: "yuni 2" },
-    { type: "video", src: "/yuni/IMG_3314.MOV", alt: "yuni 3" },
-    { type: "video", src: "/yuni/IMG_3312.MOV", alt: "yuni 4" },
-    { type: "image", src: "/yuni/photo_2026-03-06_21-23-31.jpg", alt: "yuni 5" },
-    { type: "image", src: "/yuni/photo_2026-03-06_21-23-42.jpg", alt: "yuni 6" },
-    { type: "image", src: "/yuni/photo_2026-03-06_21-26-15.jpg", alt: "yuni 7" },
-    { type: "image", src: "/yuni/photo_2026-03-06_21-30-13.jpg", alt: "yuni 8" },
-    { type: "image", src: "/yuni/photo_2026-03-06_21-31-15.jpg", alt: "yuni 9" },
-    { type: "image", src: "/yuni/photo_2026-03-06_21-58-56.jpg", alt: "yuni 10" },
-    { type: "image", src: "/yuni/photo_2026-03-06_21-58-57.jpg", alt: "yuni 11" },
-    { type: "image", src: "/yuni/photo_2026-03-06_22-05-16.jpg", alt: "yuni 12" },
-    { type: "image", src: "/yuni/photo_2026-03-06_22-05-19.jpg", alt: "yuni 13" },
-    { type: "image", src: "/yuni/photo_2026-03-06_22-06-12.jpg", alt: "yuni 14" },
+    { type: "video", src: "https://res.cloudinary.com/dgb2lnz2i/video/upload/v1772813295/IMG_2697_hqd5ii.mp4", alt: "yuni 1" },
+    { type: "video", src: "https://res.cloudinary.com/dgb2lnz2i/video/upload/v1772813294/IMG_3311_c9hc8q.mp4", alt: "yuni 2" },
+    { type: "video", src: "https://res.cloudinary.com/dgb2lnz2i/video/upload/v1772813294/IMG_3314_g33jbm.mp4", alt: "yuni 3" },
+    { type: "video", src: "https://res.cloudinary.com/dgb2lnz2i/video/upload/v1772813294/IMG_3312_s2h3p8.mp4", alt: "yuni 4" },
+    { type: "image", src: "https://res.cloudinary.com/dgb2lnz2i/image/upload/v1772813296/photo_2026-03-06_21-58-56_yedtmz.jpg", alt: "yuni 13" },
+    { type: "image", src: "https://res.cloudinary.com/dgb2lnz2i/image/upload/v1772813297/photo_2026-03-06_21-58-57_lon5yw.jpg", alt: "yuni 14" },
+    { type: "image", src: "https://res.cloudinary.com/dgb2lnz2i/image/upload/v1772813293/photo_2026-03-06_22-06-12_augwla.jpg", alt: "yuni 5" },
+    { type: "image", src: "https://res.cloudinary.com/dgb2lnz2i/image/upload/v1772813296/photo_2026-03-06_22-05-19_he5hv7.jpg", alt: "yuni 6" },
+    { type: "image", src: "https://res.cloudinary.com/dgb2lnz2i/image/upload/v1772813295/photo_2026-03-06_21-23-42_gcteut.jpg", alt: "yuni 7" },
+    { type: "image", src: "https://res.cloudinary.com/dgb2lnz2i/image/upload/v1772813295/photo_2026-03-06_21-23-31_csqyn4.jpg", alt: "yuni 8" },
+    { type: "image", src: "https://res.cloudinary.com/dgb2lnz2i/image/upload/v1772813296/photo_2026-03-06_21-26-15_yfqwue.jpg", alt: "yuni 9" },
+    { type: "image", src: "https://res.cloudinary.com/dgb2lnz2i/image/upload/v1772813296/photo_2026-03-06_21-30-13_g5sa0x.jpg", alt: "yuni 10" },
+    { type: "image", src: "https://res.cloudinary.com/dgb2lnz2i/image/upload/v1772813296/photo_2026-03-06_21-31-15_tnw8xr.jpg", alt: "yuni 11" },
+    { type: "image", src: "https://res.cloudinary.com/dgb2lnz2i/image/upload/v1772813296/photo_2026-03-06_22-05-16_zdpwvd.jpg", alt: "yuni 12" },
 ];
 
 /* ─── Lyrics config: "Your Universe" by Rico Blanco ─── */
