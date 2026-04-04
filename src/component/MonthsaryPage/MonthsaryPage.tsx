@@ -31,6 +31,23 @@ const MONTHSARY_MEDIA = [
   { type: "image", src: "/first-month/photo_2026-04-04_22-09-24.jpg", alt: "Our memory" },
 ];
 
+const CONFETTI_COLORS = [
+  "#f48bb0", "#f9a8c9", "#ffc8d8", "#ff85a1",
+  "#e8608f", "#c63a73", "#ffb3cc", "#ff5c8d",
+];
+
+function makeConfetti(count = 80) {
+  return Array.from({ length: count }, () => ({
+    left: Math.random() * 100,
+    delay: Math.floor(Math.random() * 1400),
+    duration: 4000 + Math.floor(Math.random() * 3000),
+    width: 6 + Math.floor(Math.random() * 8),
+    height: 4 + Math.floor(Math.random() * 6),
+    color: CONFETTI_COLORS[Math.floor(Math.random() * CONFETTI_COLORS.length)],
+    rotate: Math.floor(Math.random() * 360),
+  }));
+}
+
 const LYRICS = [
   { time: 0, text: "Press play, Beiby :)" },
   { time: 1, text: "..." },
@@ -98,6 +115,9 @@ const LYRICS = [
 ];
 
 export default function MonthsaryPage() {
+  const [isEnvelopeOpened, setIsEnvelopeOpened] = useState(false);
+  const [isEnvelopeAnimating, setIsEnvelopeAnimating] = useState(false);
+  const [confetti, setConfetti] = useState<ReturnType<typeof makeConfetti>>([]);
   const [revealedItems, setRevealedItems] = useState<Set<number>>(new Set());
   const [mediaIndex, setMediaIndex] = useState(0);
   const [isGiftOpened, setIsGiftOpened] = useState(false);
@@ -108,6 +128,15 @@ export default function MonthsaryPage() {
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentTime, setCurrentTime] = useState(0);
   const autoAdvanceTimerRef = useRef<NodeJS.Timeout | null>(null);
+
+  const handleOpenEnvelope = () => {
+    if (isEnvelopeAnimating) return;
+    setIsEnvelopeAnimating(true);
+    setConfetti(makeConfetti(100));
+    setTimeout(() => {
+      setIsEnvelopeOpened(true);
+    }, 1000);
+  };
 
   const handleReveal = (index: number) => {
     setRevealedItems(prev => new Set(prev).add(index));
@@ -181,7 +210,61 @@ export default function MonthsaryPage() {
 
   return (
     <div className="monthsary-page">
-      <div className="monthsary-card">
+      {/* Confetti overlay */}
+      <div className="confetti-layer" aria-hidden style={{ zIndex: 1000, pointerEvents: "none" }}>
+        {confetti.map((p, i) => (
+          <span
+            key={i}
+            className="confetti-piece"
+            style={{
+              left: `${p.left}%`,
+              width: `${p.width}px`,
+              height: `${p.height}px`,
+              backgroundColor: p.color,
+              animationDuration: `${p.duration}ms, ${Math.max(1500, p.duration * 0.5)}ms`,
+              animationDelay: `${p.delay}ms, ${p.delay}ms`,
+              transform: `rotate(${p.rotate}deg)`,
+            }}
+          />
+        ))}
+      </div>
+
+      {!isEnvelopeOpened ? (
+        <div className="envelope-scene">
+          <div className={`gift-envelope ${isEnvelopeAnimating ? 'opening' : ''}`} onClick={handleOpenEnvelope}>
+            {/* Ribbon */}
+            <div className="ribbon-vertical"></div>
+            <div className="ribbon-horizontal"></div>
+            <div className="ribbon-bow">
+              <div className="bow-left"></div>
+              <div className="bow-right"></div>
+              <div className="bow-center"></div>
+            </div>
+            
+            {/* Envelope */}
+            <div className="envelope-container">
+              <div className="envelope-back"></div>
+              <div className="envelope-front"></div>
+              <div className="envelope-flap"></div>
+              
+              {/* Letter peek */}
+              <div className="letter-peek">
+                <div className="letter-edge">
+                  <span className="peek-text">For My Beiby 💗</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <p className="envelope-instruction">
+            <span className="instruction-icon">✨</span>
+            Click to open your special gift
+            <span className="instruction-icon">✨</span>
+          </p>
+        </div>
+      ) : (
+        <div className={` ${isEnvelopeOpened ? 'revealed' : ''}`}>
+          <div className="monthsary-card">
         <div className="monthsary-header">
           <h1 className="monthsary-title">Happy First Monthsary, Beiby!!</h1>
         </div>
@@ -298,6 +381,8 @@ export default function MonthsaryPage() {
           </div>
         </div>
       </div>
+        </div>
+      )}
     </div>
   );
 }

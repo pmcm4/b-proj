@@ -6,7 +6,7 @@ type Props = {
 };
 
 // Replace this with whatever you want the password to be!
-const CORRECT_PASSWORD = "";
+const CORRECT_PASSWORD = "bea-maangas";
 
 export default function PasswordPage({ onSuccess }: Props) {
     const [password, setPassword] = useState("");
