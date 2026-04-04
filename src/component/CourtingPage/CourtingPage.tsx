@@ -162,9 +162,15 @@ function useRelationshipDuration() {
 /* ================================================================
    MAIN COMPONENT
    ================================================================ */
+type Section = "courting" | "timer" | "monthsary";
+
 export default function CourtingPage() {
     const duration = useDuration();
     const relDuration = useRelationshipDuration();
+
+    /* Active section — defaults to monthsary (3rd section) */
+    const [section, setSection] = useState<Section>("monthsary");
+
     /* No-button evasion state */
     const [isEvasive, setIsEvasive] = useState(false);
     const [noPos, setNoPos] = useState({ x: 0, y: 0 });
@@ -284,87 +290,130 @@ export default function CourtingPage() {
                 ))}
             </div>
 
-            {/* ─── Main View: Appreciation Screen ─── */}
-            <div className="appreciation-main-card">
-                <div className="success-header">
-                    <h2 className="success-title">Hi Bea</h2>
-                    <p className="success-subtitle">
-                        I am incredibly happy that you legitimately said yes. I asked you so many times yesterday if it was true because I truly couldn’t believe it. Sorry for laughing randomly in the car yesterday. I just couldn’t help it. I love you so muchhhhhhhhhhhhhh.                    </p>
-                </div>
+            {/* ─── Section Navigation ─── */}
+            <nav className="section-nav">
+                <button
+                    className={`nav-item${section === "courting" ? " active" : ""}`}
+                    onClick={() => setSection("courting")}
+                >
+                    💕 Courting Stage
+                </button>
+                <button
+                    className={`nav-item${section === "timer" ? " active" : ""}`}
+                    onClick={() => setSection("timer")}
+                >
+                    ⏱ Since Your Yes
+                </button>
+                <button
+                    className={`nav-item${section === "monthsary" ? " active" : ""}`}
+                    onClick={() => setSection("monthsary")}
+                >
+                    🌸 One Month
+                </button>
+            </nav>
 
-                <div className="relationship-timer">
-                    <span className="timer-label">Time since your sweet "Yes":</span>
-                    <span className="timer-value">{relDuration}</span>
-                </div>
+            {/* ─── Section 1: Courting Stage ─── */}
+            {section === "courting" && (
+                <>
+                    <div className="appreciation-main-card">
+                        <div className="success-header">
+                            <h2 className="success-title">Hi Bea</h2>
+                            <p className="success-subtitle">
+                                I am incredibly happy that you legitimately said yes. I asked you so many times yesterday if it was true because I truly couldn't believe it. Sorry for laughing randomly in the car yesterday. I just couldn't help it. I love you so muchhhhhhhhhhhhhh.                    </p>
+                        </div>
 
-                {/* ─── Interactive Gift Box or Media Slideshow ─── */}
-                {!isGiftOpened ? (
-                    <div className="gift-box-container">
-                        <div className={`gift-box ${isAnimatingGift ? "opening" : "bouncing"}`}>
-                            <div className="gift-lid">
-                                <div className="gift-bow"></div>
+                        {/* ─── Interactive Gift Box or Media Slideshow ─── */}
+                        {!isGiftOpened ? (
+                            <div className="gift-box-container">
+                                <div className={`gift-box ${isAnimatingGift ? "opening" : "bouncing"}`}>
+                                    <div className="gift-lid">
+                                        <div className="gift-bow"></div>
+                                    </div>
+                                    <div className="gift-body"></div>
+                                </div>
                             </div>
-                            <div className="gift-body"></div>
+                        ) : (
+                            <div className="media-slideshow" style={{ animation: "fadeIn 1.5s ease" }}>
+                                {MEDIA_ITEMS.length > 0 && (
+                                    <>
+                                        <button className="slide-btn prev" onClick={prevMedia} aria-label="Previous media">
+                                            &#10094;
+                                        </button>
+                                        <div className="slide-content">
+                                            {MEDIA_ITEMS[mediaIndex].type === "image" ? (
+                                                <img
+                                                    src={MEDIA_ITEMS[mediaIndex].src}
+                                                    alt={MEDIA_ITEMS[mediaIndex].alt}
+                                                    className="slide-media"
+                                                />
+                                            ) : (
+                                                <video
+                                                    src={MEDIA_ITEMS[mediaIndex].src}
+                                                    className="slide-media"
+                                                    autoPlay
+                                                    loop
+                                                    muted
+                                                    playsInline
+                                                />
+                                            )}
+                                        </div>
+                                        <button className="slide-btn next" onClick={nextMedia} aria-label="Next media">
+                                            &#10095;
+                                        </button>
+                                    </>
+                                )}
+                            </div>
+                        )}
+
+                        {/* ─── Music Player & Lyrics ─── */}
+                        <div className="music-player-section">
+                            <audio
+                                ref={audioRef}
+                                src="/yuni/Rico Blanco - Your Universe.mp3"
+                                onTimeUpdate={handleTimeUpdate}
+                                onEnded={() => setIsPlaying(false)}
+                            />
+
+                            <div className="lyrics-display">
+                                <p className="lyric-line">{currentLyric}</p>
+                            </div>
+
+                            <button className="btn-play-music" onClick={toggleAudio}>
+                                {isPlaying ? "⏸" : "▶"}
+                            </button>
                         </div>
                     </div>
-                ) : (
-                    <div className="media-slideshow" style={{ animation: "fadeIn 1.5s ease" }}>
-                        {MEDIA_ITEMS.length > 0 && (
-                            <>
-                                <button className="slide-btn prev" onClick={prevMedia} aria-label="Previous media">
-                                    &#10094;
-                                </button>
-                                <div className="slide-content">
-                                    {MEDIA_ITEMS[mediaIndex].type === "image" ? (
-                                        <img
-                                            src={MEDIA_ITEMS[mediaIndex].src}
-                                            alt={MEDIA_ITEMS[mediaIndex].alt}
-                                            className="slide-media"
-                                        />
-                                    ) : (
-                                        <video
-                                            src={MEDIA_ITEMS[mediaIndex].src}
-                                            className="slide-media"
-                                            autoPlay
-                                            loop
-                                            muted
-                                            playsInline
-                                        />
-                                    )}
-                                </div>
-                                <button className="slide-btn next" onClick={nextMedia} aria-label="Next media">
-                                    &#10095;
-                                </button>
-                            </>
-                        )}
+
+                    {/* ─── Revisit Button (Outside Card) ─── */}
+                    <div className="revisit-row-outside">
+                        <button className="btn btn-revisit-glass" onClick={() => setShowCourtingCard(true)}>
+                            See how I asked you out again
+                        </button>
                     </div>
-                )}
+                </>
+            )}
 
-                {/* ─── Music Player & Lyrics ─── */}
-                <div className="music-player-section">
-                    <audio
-                        ref={audioRef}
-                        src="/yuni/Rico Blanco - Your Universe.mp3"
-                        onTimeUpdate={handleTimeUpdate}
-                        onEnded={() => setIsPlaying(false)}
-                    />
-
-                    <div className="lyrics-display">
-                        <p className="lyric-line">{currentLyric}</p>
+            {/* ─── Section 2: Time Since Your Sweet "Yes" ─── */}
+            {section === "timer" && (
+                <div className="timer-section-card">
+                    <span className="timer-section-icon">💕</span>
+                    <h2 className="timer-section-heading">Time Since Your Sweet “Yes”</h2>
+                    <div className="timer-section-display">
+                        <span className="timer-section-value">{relDuration}</span>
                     </div>
-
-                    <button className="btn-play-music" onClick={toggleAudio}>
-                        {isPlaying ? "⏸" : "▶"}
-                    </button>
+                    <p className="timer-section-sub">and counting 🌸</p>
                 </div>
-            </div>
+            )}
 
-            {/* ─── Revisit Button (Outside Card) ─── */}
-            <div className="revisit-row-outside">
-                <button className="btn btn-revisit-glass" onClick={() => setShowCourtingCard(true)}>
-                    See how I asked you out again
-                </button>
-            </div>
+            {/* ─── Section 3: First Monthsary Message ─── */}
+            {section === "monthsary" && (
+                <div className="monthsary-section-card">
+                    <span className="monthsary-icon">🌸</span>
+                    <h2 className="monthsary-heading">Happy 1st Monthsary, Bea 💕</h2>
+                    {/* message to be added */}
+                    <p className="monthsary-message"></p>
+                </div>
+            )}
 
             {/* ─── Courting Overlay (portal) ─── */}
             {showCourtingCard &&

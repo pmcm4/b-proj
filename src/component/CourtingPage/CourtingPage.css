@@ -982,3 +982,188 @@ body {
     font-weight: 600;
     text-align: center;
 }
+/* ============================================================
+   SECTION NAVIGATION
+   ============================================================ */
+.section-nav {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+    z-index: 2;
+    width: 100%;
+    max-width: 500px;
+    animation: fadeIn 0.6s ease both;
+}
+
+.nav-item {
+    font-family: 'Nunito', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 700;
+    padding: 0.55rem 1.1rem;
+    border-radius: 50px;
+    border: 1.5px solid var(--pink-light);
+    background: rgba(255, 255, 255, 0.6);
+    color: var(--text-soft);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    backdrop-filter: blur(8px);
+    letter-spacing: 0.02em;
+    white-space: nowrap;
+}
+
+.nav-item:hover {
+    background: rgba(255, 255, 255, 0.9);
+    border-color: var(--pink-mid);
+    color: var(--pink-accent);
+    transform: translateY(-1px);
+}
+
+.nav-item.active {
+    background: linear-gradient(135deg, var(--pink-mid), var(--pink-dark));
+    border-color: transparent;
+    color: var(--white);
+    box-shadow: 0 4px 14px rgba(228, 80, 140, 0.4);
+}
+
+@media (min-width: 480px) {
+    .nav-item {
+        font-size: 0.9rem;
+        padding: 0.6rem 1.3rem;
+    }
+}
+
+/* ============================================================
+   TIMER SECTION CARD
+   ============================================================ */
+.timer-section-card {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(20px);
+    border-radius: var(--radius);
+    border: 2px solid rgba(244, 139, 176, 0.5);
+    box-shadow: 0 16px 54px rgba(200, 60, 120, 0.22);
+    padding: 2.5rem 2rem;
+    width: 100%;
+    max-width: 500px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.25rem;
+    z-index: 2;
+    animation: cardBounceIn 0.7s cubic-bezier(.68, -0.55, .27, 1.55) 0.2s both;
+}
+
+.timer-section-icon {
+    font-size: 3rem;
+    display: block;
+    animation: heartbeat 1.3s ease-in-out infinite;
+    filter: drop-shadow(0 2px 8px rgba(228, 80, 140, 0.4));
+}
+
+.timer-section-heading {
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--pink-accent);
+    line-height: 1.2;
+}
+
+@media (min-width: 480px) {
+    .timer-section-heading {
+        font-size: 2.2rem;
+    }
+}
+
+.timer-section-display {
+    background: rgba(255, 200, 216, 0.3);
+    border-radius: 16px;
+    padding: 1.25rem 1.5rem;
+    border: 1px dashed var(--pink-mid);
+    width: 100%;
+}
+
+.timer-section-value {
+    font-family: 'Nunito', sans-serif;
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: var(--pink-accent);
+    line-height: 1.5;
+    display: block;
+}
+
+@media (min-width: 480px) {
+    .timer-section-value {
+        font-size: 1.35rem;
+    }
+}
+
+.timer-section-sub {
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.3rem;
+    color: var(--pink-dark);
+    font-weight: 600;
+}
+
+/* ============================================================
+   MONTHSARY SECTION CARD
+   ============================================================ */
+.monthsary-section-card {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(20px);
+    border-radius: var(--radius);
+    border: 2px solid rgba(244, 139, 176, 0.5);
+    box-shadow: 0 16px 54px rgba(200, 60, 120, 0.22);
+    padding: 2.5rem 2rem;
+    width: 100%;
+    max-width: 500px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.25rem;
+    z-index: 2;
+    animation: cardBounceIn 0.7s cubic-bezier(.68, -0.55, .27, 1.55) 0.2s both;
+}
+
+.monthsary-icon {
+    font-size: 3rem;
+    display: block;
+    animation: heartbeat 1.3s ease-in-out infinite;
+    filter: drop-shadow(0 2px 8px rgba(228, 80, 140, 0.4));
+}
+
+.monthsary-heading {
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--pink-accent);
+    line-height: 1.25;
+}
+
+@media (min-width: 480px) {
+    .monthsary-heading {
+        font-size: 2.2rem;
+    }
+}
+
+.monthsary-message {
+    font-size: 0.95rem;
+    color: var(--text-soft);
+    font-weight: 600;
+    line-height: 1.65;
+    width: 100%;
+    min-height: 3rem;
+}
+
+@keyframes cardBounceIn {
+    from {
+        opacity: 0;
+        transform: scale(0.92) translateY(12px);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
