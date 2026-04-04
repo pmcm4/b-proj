@@ -1,11 +1,11 @@
 import { useState } from "react";
-import CourtingPage from "./component/CourtingPage/CourtingPage";
+import MainPage from "./component/MainPage/MainPage";
 import PasswordPage from "./component/PasswordPage/PasswordPage";
 
 function App() {
   const [unlocked, setUnlocked] = useState(false);
 
-  return unlocked ? <CourtingPage /> : <PasswordPage onSuccess={() => setUnlocked(true)} />;
+  return unlocked ? <MainPage /> : <PasswordPage onSuccess={() => setUnlocked(true)} />;
 }
 
 export default App;

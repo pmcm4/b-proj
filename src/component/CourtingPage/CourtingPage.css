@@ -51,9 +51,13 @@ body {
     align-items: center;
     justify-content: center;
     min-height: 100vh;
-    /* generous side padding on phones */
     padding: 1.5rem 1rem;
     animation: pageIn 0.7s ease both;
+}
+
+.courting-page-content {
+    max-width: 600px;
+    width: 100%;
 }
 
 @keyframes pageIn {

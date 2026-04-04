@@ -1,0 +1,65 @@
+import { useState } from "react";
+import "./MonthsaryPage.css";
+
+const SPG_ITEMS = [
+  "I LOVE the view whenever you're on top of me.",
+  "I LOVE your face whenever I'm looking down on you when I'm on top.",
+  "I LOVE the view at the back, you know what I mean.",
+  "I LOVE it whenever you compliment me when we're doing it."
+];
+
+export default function MonthsaryPage() {
+  const [revealedItems, setRevealedItems] = useState<Set<number>>(new Set());
+
+  const handleReveal = (index: number) => {
+    setRevealedItems(prev => new Set(prev).add(index));
+  };
+
+  return (
+    <div className="monthsary-page">
+      <div className="monthsary-card">
+
+        <div className="monthsary-message">
+          <p className="message-greeting">Hi Beiby,</p>
+          
+          <p>Happy first monthsary, Beiby! Alam mo ba, madalas akong tanungin kung ano ang nagustuhan ko sa’yo, at every time I try to answer, I realize ang dami kong gustong sabihin. Talagang hindi ko alam kung saan ko uumpisahan because there are so many little things about you that make me smile, make me laugh, and make me feel so lucky. Kaya I decided to make a list, para kahit papaano, maipakita ko sa’yo lahat ng reasons kung bakit I love you and why I feel so grateful to have you in my life.</p>
+          
+          <ol className="love-list">
+            <li>I LOVE how cute you are whenever you lose your vape and try to find it.</li>
+            <li>I LOVE it when you skip songs halfway.</li>
+            <li>I LOVE your cooking, asawahin na kita niyan, sige ka.</li>
+            <li>I LOVE how appreciative you are sa lahat ng ginagawa ko, even the small things I don't notice.</li>
+            <li>I LOVE the fact na hindi ka maarte; you're always okay with what we have and what we can do right now.</li>
+            <li>I LOVE how you think of me before deciding on something for yourself. This melts my heart every time.</li>
+            <li>I LOVE how you take care of me and even scold me sometimes because you care.</li>
+            <li>I LOVE it kapag sinisipag ka bigla gawin yung isang bagay randomly.</li>
+            <li>I LOVE how you introduce me to your friends.</li>
+            <li>I LOVE how PROUD you are of having ME.</li>
+            <li>MANY MOREEE (Di ko na imention yung iba, baka masyado na lumaki ulo mo Beiby)</li>
+          </ol>
+
+          <p className="spg-header">SPG: <span className="spg-hint">(Click to reveal 🙈)</span></p>
+          
+          <ol className="spg-list">
+            {SPG_ITEMS.map((item, index) => (
+              <li
+                key={index}
+                className={`spg-item ${revealedItems.has(index) ? 'revealed' : 'blurred'}`}
+                onClick={() => handleReveal(index)}
+                role="button"
+                tabIndex={0}
+                onKeyPress={(e) => e.key === 'Enter' && handleReveal(index)}
+              >
+                {item}
+              </li>
+            ))}
+          </ol>
+
+          <p>
+            But kidding aside, Beiby, you complete me. I will never waste the privilege you gave me to have YOU. I may be naughty or hardheaded sometimes, but I just want you to know that I LOVE YOU SO MUCH.
+          </p>
+        </div>
+      </div>
+    </div>
+  );
+}
