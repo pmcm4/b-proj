@@ -27,10 +27,8 @@ export default function PasswordPage({ onSuccess }: Props) {
             <div className={`password-card ${errorKey > 0 ? "shake" : ""}`} key={errorKey}>
                 <span className="lock-icon">🔒</span>
 
-                <h1 className="password-heading">For Bea</h1>
-                <p className="password-subtitle">
-                    Nasa likod ng papel ang passcode
-                </p>
+                <h1 className="password-heading">For my one and only Beiby</h1>
+                <br></br>
 
                 <form onSubmit={handleSubmit} className="password-form">
                     <input
