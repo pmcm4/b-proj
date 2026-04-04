@@ -272,7 +272,7 @@ export default function MonthsaryPage() {
         <div className="monthsary-message">
           <p className="message-greeting">Hi Beiby,</p>
           
-          <p>Happy first monthsary, Beiby! Alam mo ba, madalas akong tanungin kung ano ang nagustuhan ko sa’yo, at every time I try to answer, I realize ang dami kong gustong sabihin. Talagang hindi ko alam kung saan ko uumpisahan because there are so many little things about you that make me smile, make me laugh, and make me feel so lucky. Kaya I decided to make a list, para kahit papaano, maipakita ko sa’yo lahat ng reasons kung bakit I love you and why I feel so grateful to have you in my life.</p>
+          <p>Alam mo ba, madalas akong tanungin kung ano ang nagustuhan ko sa’yo, at every time I try to answer, I realize ang dami kong gustong sabihin. Talagang hindi ko alam kung saan ko uumpisahan because there are so many little things about you that make me smile, make me laugh, and make me feel so lucky. Kaya I decided to make a list, para kahit papaano, maipakita ko sa’yo lahat ng reasons kung bakit I love you and why I feel so grateful to have you in my life.</p>
           
           <ol className="love-list">
             <li>I LOVE how cute you are whenever you lose your vape and try to find it.</li>
