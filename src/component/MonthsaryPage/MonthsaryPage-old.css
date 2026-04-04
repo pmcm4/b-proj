@@ -1,0 +1,190 @@
+.monthsary-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.monthsary-card {
+  max-width: 900px;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-radius: 24px;
+  padding: 3rem;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  animation: fadeIn 1s ease;
+}
+
+.monthsary-header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+  padding-bottom: 2rem;
+  border-bottom: 2px solid rgba(244, 139, 176, 0.35);
+}
+
+.monthsary-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #c63a73;
+  margin-bottom: 1rem;
+  font-family: 'Dancing Script', cursive;
+}
+
+.monthsary-date {
+  font-size: 1.1rem;
+  color: #a05070;
+  font-weight: 500;
+  font-family: 'Nunito', sans-serif;
+}
+
+.monthsary-message {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #5a2040;
+  text-align: left;
+  font-family: 'Nunito', sans-serif;
+}
+
+.monthsary-message p {
+  margin-bottom: 1.5rem;
+}
+
+.message-greeting {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #c63a73;
+  font-family: 'Dancing Script', cursive;
+}
+
+.love-list,
+.spg-list {
+  text-align: left;
+  margin: 1.5rem 0;
+  padding-left: 1.5rem;
+}
+
+.love-list li {
+  margin-bottom: 1rem;
+  line-height: 1.6;
+  padding: 0.5rem;
+  border-radius: 8px;
+  background: rgba(244, 139, 176, 0.08);
+}
+
+.spg-item {
+  margin-bottom: 1rem;
+  line-height: 1.6;
+  cursor: pointer;
+  user-select: none;
+  transition: all 0.3s ease;
+  padding: 0.5rem;
+  border-radius: 8px;
+}
+
+.spg-item.blurred {
+  filter: blur(8px);
+  background: rgba(244, 139, 176, 0.15);
+}
+
+.spg-item.blurred:hover {
+  filter: blur(6px);
+  background: rgba(244, 139, 176, 0.25);
+  transform: scale(1.02);
+}
+
+.spg-item.revealed {
+  filter: blur(0);
+  animation: revealItem 0.5s ease;
+  background: rgba(244, 139, 176, 0.08);
+}
+
+.music-player-section{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@keyframes revealItem {
+  from {
+    filter: blur(8px);
+    transform: scale(0.98);
+  }
+  to {
+    filter: blur(0);
+    transform: scale(1);
+  }
+}
+
+.spg-header {
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: #e8608f;
+  margin-top: 2rem !important;
+}
+
+.spg-hint {
+  font-size: 0.9rem;
+  font-weight: 400;
+  color: #a05070;
+  font-style: italic;
+}
+
+.message-closing {
+  margin-top: 2rem !important;
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: #c63a73;
+  text-align: center;
+  padding: 1.5rem;
+  background: rgba(244, 139, 176, 0.1);
+  border-radius: 12px;
+  border: 1px solid rgba(244, 139, 176, 0.3);
+}
+
+.surprise-section {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 2px solid rgba(244, 139, 176, 0.35);
+}
+
+.surprise-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #c63a73;
+  font-family: 'Dancing Script', cursive;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 640px) {
+  .monthsary-page {
+    padding: 1rem;
+  }
+
+  .monthsary-card {
+    padding: 2rem 1.5rem;
+  }
+
+  .monthsary-title {
+    font-size: 1.8rem;
+  }
+
+  .monthsary-message {
+    font-size: 1rem;
+  }
+}
+
+

@@ -1,0 +1,80 @@
+@import "../CourtingPage/CourtingPage.css";
+
+.relationship-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.relationship-card {
+  max-width: 800px;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-radius: 24px;
+  padding: 2.5rem;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+.relationship-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.relationship-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #c63a73;
+  margin-bottom: 1rem;
+  font-family: 'Dancing Script', cursive;
+}
+
+.relationship-subtitle {
+  font-size: 1.1rem;
+  color: #5a2040;
+  line-height: 1.7;
+  font-family: 'Nunito', sans-serif;
+}
+
+.relationship-timer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1.5rem;
+  background: linear-gradient(135deg, #f48fb1 0%, #f06292 100%);
+  border-radius: 16px;
+  margin-bottom: 2rem;
+}
+
+.timer-label {
+  font-size: 1rem;
+  font-weight: 500;
+  color: white;
+}
+
+.timer-value {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: white;
+}
+
+@media (max-width: 640px) {
+  .relationship-page {
+    padding: 1rem;
+  }
+
+  .relationship-card {
+    padding: 1.5rem;
+  }
+
+  .relationship-title {
+    font-size: 2rem;
+  }
+
+  .relationship-subtitle {
+    font-size: 1rem;
+  }
+}
